@@ -9,5 +9,5 @@ jobs:
       - run: |
           echo qbranch hiii
           git status
-          git branhc
+          git branch
       
