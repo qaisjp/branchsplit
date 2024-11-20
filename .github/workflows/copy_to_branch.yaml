@@ -11,4 +11,19 @@ jobs:
           git status
           git branch
           pwd
+          PREFIX="prefix-"
+          SRC_ROOT="$(pwd)"
+          for FOLDER in foo bar; do
+            echo "Doing ${FOLDER}"
+            BRANCH="${PREFIX}${FOLDER}"
+            git worktree add "../${FOLDER}" "${BRANCH}"
+            cd "../${FOLDER}"
+            git rm -rf .
+            cp -r "${SRC_ROOT}/${FOLDER}" .
+            git add .
+            git commit -m "Sync from ${{ github.sha }}"
+            git push
+            cd "${SRC_ROOT}"
+          done
+            
       
