@@ -1,2 +1,3 @@
 
 bar.txt write
+nnnn
