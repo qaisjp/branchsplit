@@ -1,0 +1,12 @@
+on:
+  push:
+    branches: [master]
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo qbranch hiii
+          git status
+          git branhc
+      
