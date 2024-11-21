@@ -27,9 +27,11 @@ jobs:
             cd "../${FOLDER}"
             git rm -rf .
             cp -r "${SRC_ROOT}/${FOLDER}/." .
-            git add .
-            git commit -m "Sync from ${{ github.sha }}"
-            git push
+            if [[ $(git diff --stat) != '' ]]; then
+              git add .
+              git commit -m "Sync from ${{ github.sha }}"
+              git push
+            fi
             cd "${SRC_ROOT}"
           done
             
