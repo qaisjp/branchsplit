@@ -18,7 +18,7 @@ jobs:
           for FOLDER in foo bar; do
             echo "Doing ${FOLDER}"
             BRANCH="${PREFIX}${FOLDER}"
-            git worktree add "../${FOLDER}" "${BRANCH}"
+            git worktree add "../${FOLDER}" "origin/${BRANCH}"
             cd "../${FOLDER}"
             git rm -rf .
             cp -r "${SRC_ROOT}/${FOLDER}" .
