@@ -26,7 +26,7 @@ jobs:
             echo "Worktree is at ${SRC_ROOT}/../${FOLDER}"
             cd "../${FOLDER}"
             git rm -rf .
-            cp -r "${SRC_ROOT}/${FOLDER}/*" .
+            cp -r "${SRC_ROOT}/${FOLDER}/." .
             git add .
             git commit -m "Sync from ${{ github.sha }}"
             git push
